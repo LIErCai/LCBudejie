@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LCADViewController">
+            <connections>
+                <outlet property="adContentView" destination="SzV-Ja-3BL" id="eSz-To-WKh"/>
+                <outlet property="imageView" destination="Y4L-uv-uUy" id="Bnm-p1-vak"/>
+                <outlet property="jumpButton" destination="erd-Ol-wi7" id="UGa-hn-2UX"/>
+                <outlet property="view" destination="ha1-n3-SdI" id="WpD-B1-RmB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ha1-n3-SdI">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y4L-uv-uUy">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SzV-Ja-3BL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erd-Ol-wi7">
+                    <rect key="frame" x="267" y="21" width="100" height="30"/>
+                    <color key="backgroundColor" red="0.16759390782828287" green="0.16759390782828287" blue="0.16759390782828287" alpha="0.82000000000000006" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="58d-kw-Zy4"/>
+                        <constraint firstAttribute="height" constant="30" id="cha-AH-jGi"/>
+                    </constraints>
+                    <state key="normal" title="跳过 (3)">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="jumpButton:" destination="-1" eventType="touchUpInside" id="8Ey-Eh-RNT"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="SzV-Ja-3BL" firstAttribute="top" secondItem="ha1-n3-SdI" secondAttribute="top" id="AWB-RJ-hcl"/>
+                <constraint firstAttribute="bottom" secondItem="Y4L-uv-uUy" secondAttribute="bottom" id="IS6-3V-F0D"/>
+                <constraint firstAttribute="trailing" secondItem="Y4L-uv-uUy" secondAttribute="trailing" id="NKY-6u-quh"/>
+                <constraint firstItem="SzV-Ja-3BL" firstAttribute="leading" secondItem="ha1-n3-SdI" secondAttribute="leading" id="TPD-xo-kqG"/>
+                <constraint firstItem="Y4L-uv-uUy" firstAttribute="leading" secondItem="ha1-n3-SdI" secondAttribute="leading" id="Ufa-8Z-4ML"/>
+                <constraint firstItem="erd-Ol-wi7" firstAttribute="top" secondItem="ha1-n3-SdI" secondAttribute="top" constant="21" id="Vah-nM-Bdm"/>
+                <constraint firstAttribute="trailing" secondItem="SzV-Ja-3BL" secondAttribute="trailing" id="dFg-6O-k16"/>
+                <constraint firstAttribute="bottom" secondItem="SzV-Ja-3BL" secondAttribute="bottom" id="dqi-LO-Ek5"/>
+                <constraint firstAttribute="trailing" secondItem="erd-Ol-wi7" secondAttribute="trailing" constant="8" id="n0a-pj-3W3"/>
+                <constraint firstItem="Y4L-uv-uUy" firstAttribute="top" secondItem="ha1-n3-SdI" secondAttribute="top" id="y25-pA-NuQ"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="434.5" y="319.5"/>
+        </view>
+    </objects>
+</document>

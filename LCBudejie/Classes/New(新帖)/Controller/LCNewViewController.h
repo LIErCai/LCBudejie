@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LCNewViewController : UITableViewController
+@interface LCNewViewController : UIViewController
 
 @end

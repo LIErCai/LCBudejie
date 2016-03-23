@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LCEssenceViewController : UITableViewController
+@interface LCEssenceViewController : UIViewController
 
 @end

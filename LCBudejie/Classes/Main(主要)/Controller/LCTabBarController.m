@@ -8,6 +8,8 @@
 
 #import "LCTabBarController.h"
 #import "UIImage+LC.h"
+#import "LCTabBar.h"
+#import "LCNavigationController.h"
 
 #import "LCEssenceViewController.h"
 #import "LCNewViewController.h"
@@ -35,6 +37,10 @@
     
     //1. 加载子控制器
     [self setupAllChilderController];
+    
+    [self setValue:[[LCTabBar alloc] init] forKey:@"tabBar"];
+ 
+    
 }
 
 /**
@@ -50,18 +56,15 @@
     LCNewViewController  *newVc = [[LCNewViewController alloc] init];
     [self addOneController:newVc title:@"新帖" image:[UIImage imageNamed:@"tabBar_new_icon"] selectImage:[UIImage imageOriginalWithName:@"tabBar_new_click_icon"]];
     
-    //3. 发布
-    LCPublishViewController *publishVc = [[LCPublishViewController alloc] init];
-    publishVc.tabBarItem.image = [UIImage imageNamed:@"tabBar_publish_icon"];
-    publishVc.tabBarItem.selectedImage = [UIImage imageOriginalWithName:@"tabBar_publish_click_icon"];
-    [self addChildViewController:publishVc];
-    
+  
     //4. 关注
     LCFriendTrendViewController  *friendVc = [[LCFriendTrendViewController alloc] init];
     [self addOneController:friendVc title:@"关注" image:[UIImage imageNamed:@"tabBar_friendTrends_icon"] selectImage:[UIImage imageOriginalWithName:@"tabBar_friendTrends_click_icon"]];
     
     //5. 我
-    LCMineViewController  *meVc = [[LCMineViewController alloc] init];
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:NSStringFromClass([LCMineViewController class]) bundle:[NSBundle mainBundle]];
+    LCMineViewController *meVc = [storyBoard instantiateInitialViewController];
     [self addOneController:meVc title:@"我" image:[UIImage imageNamed:@"tabBar_me_icon"] selectImage:[UIImage imageOriginalWithName:@"tabBar_me_click_icon"]];
 }
 /**
@@ -69,7 +72,7 @@
  */
 - (void)addOneController:(UIViewController *)vc title:(NSString *)title image:(UIImage *)image selectImage:(UIImage *)selectImage
 {
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    LCNavigationController *nav = [[LCNavigationController alloc] initWithRootViewController:vc];
     nav.title = title;
     nav.tabBarItem.image = image;
     nav.tabBarItem.selectedImage = selectImage;

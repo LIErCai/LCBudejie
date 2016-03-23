@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LCTabBarController.h"
+#import "LCADViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +20,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     LCTabBarController *tabVc = [[LCTabBarController alloc] init];
+//    LCADViewController *adVc = [[LCADViewController alloc] init];
+    
+
     self.window.rootViewController = tabVc;
     [self.window makeKeyAndVisible];
     return YES;
