@@ -11,9 +11,12 @@
 #import "LCTopic.h"
 #import <MJExtension.h>
 #import "LCTopicViewCell.h"
+#import <SVProgressHUD.h>
+
+
 @interface LCAllViewController ()
 
-@property (nonatomic, assign) NSInteger dataCount;
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @property (nonatomic, weak) UIView *footView;
 @property (nonatomic, weak) UILabel *footLabel;
 @property (nonatomic, weak) UIView *headerView;
@@ -23,29 +26,48 @@
 
 @property (nonatomic, strong) NSMutableArray *topics;
 @property (nonatomic, strong) NSString *maxtime;
+
 @end
 
 @implementation LCAllViewController
 
+static NSString *const LCTopicCellId = @"LCTopicCellId";
+
+
+- (AFHTTPSessionManager *)manager
+{
+    if (_manager == nil)
+    {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-    
-    self.view.backgroundColor = [UIColor lightGrayColor];
+   self.view.backgroundColor = LCColor(206, 206, 206);
     self.tableView.contentInset = UIEdgeInsetsMake(LCNavMaxY + LCTitleViewH, 0, LCTabBarH, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+ 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:LCTabBarButtonDidRepeatClickNotification object:nil];
     
       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:LCTitleButtonDidRepeatClickNotification object:nil];
     
-    
+
     [self setupHeaderFooterView];
-    self.tableView.rowHeight = 300;
+    self.tableView.rowHeight = 250;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"LCTopicViewCell" bundle:nil] forCellReuseIdentifier:LCTopicCellId];
+    
+    
+
    
 }
-
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 - (void)setupHeaderFooterView
 {
     //广告条
@@ -58,7 +80,7 @@
     self.tableView.tableHeaderView = label;
     
     [self setupHeaderView];
-    [self setupFooterView];
+    [self setupFootView];
 }
 
 - (void)setupHeaderView
@@ -79,7 +101,7 @@
     
     [self headerBeginRefreshing];
 }
-- (void)setupFooterView
+- (void)setupFootView
 {
     UIView *footerView = [[UIView alloc] init];
     footerView.frame = CGRectMake(0, 0, self.view.lc_width, 35);
@@ -93,7 +115,7 @@
     footerLabel.textAlignment = NSTextAlignmentCenter;
     footerLabel.backgroundColor = [UIColor redColor];
     self.footLabel = footerLabel;
-    [self.footView addSubview:footerLabel];
+    [footerView addSubview:footerLabel];
     
     self.tableView.tableFooterView = footerView;
 }
@@ -102,32 +124,31 @@
 {
     [self tabBarButtonDidRepeatClick];
 }
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+
 - (void)tabBarButtonDidRepeatClick
 {
     if (self.view.window == nil) return;
     if (self.tableView.scrollsToTop == NO) return;
-//    [self loadNewData];
+    [self headerBeginRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
    
-      self.footView.hidden = (self.dataCount == 0);
-    
+      self.footView.hidden = (self.topics.count == 0);
+
       return self.topics.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LCTopicViewCell *cell = [LCTopicViewCell topicCellWithTableView:tableView];
+    
+    LCTopicViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LCTopicCellId];
     
     cell.topic = self.topics[indexPath.row];
 //    cell.backgroundColor = [UIColor clearColor];
     return cell;
+   
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
@@ -147,58 +168,87 @@
     
 }
 
+
+
+- (void)loadNewData
+{
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"a"] = @"list";
+    parameters[@"c"] = @"data";
+    parameters[@"type"] = @"1";
+   
+    [self.manager  GET:LCCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        self.topics = [LCTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+
+        [self.tableView reloadData];
+        [self headerEndRefreshing];
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+       
+        if (error.code != NSURLErrorCancelled)
+        {
+            [SVProgressHUD showErrorWithStatus:@"网络繁忙, 请稍后再试!"];
+        }
+        [self headerEndRefreshing];
+
+    }];
+    
+
+}
+- (void)loadMoreTopics
+{
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"a"] = @"list";
+    parameters[@"c"] = @"data";
+    parameters[@"type"] = @"1";
+    parameters[@"maxtime"] = self.maxtime;
+    [self.manager  GET:LCCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        NSArray *arr = [LCTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self.topics addObjectsFromArray:arr];
+        
+        [self.tableView reloadData];
+        [self footerEndRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (error.code != NSURLErrorCancelled)
+        {
+            [SVProgressHUD showErrorWithStatus:@"网络繁忙, 请稍后再试!"];
+        }
+        [self footerEndRefreshing];
+    }];
+    
+    
+}
 - (void)headerBeginRefreshing
 {
+    if (self.isFooterRefreshing) return;
     if (self.isHeaderRefreshing) return;
     
-      NSLog(@"%@", self.headerLabel.text);
     self.headerLabel.text = @"正在刷新.....";
-    NSLog(@"%@", self.headerLabel.text);
+ 
     self.headerLabel.backgroundColor = [UIColor blueColor];
-     self.headerRefreshing = YES;
-       NSLog(@"%@", self.headerLabel.text);
+    self.headerRefreshing = YES;
+   
     [UIView animateWithDuration:0.25 animations:^{
-    
+        
         UIEdgeInsets inset = self.tableView.contentInset;
         inset.top += self.headerView.lc_height;
         self.tableView.contentInset = inset;
         
         self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, -inset.top);
-//
+        //
     }];
     
     [self loadNewData];
-     NSLog(@"%@", self.headerLabel.text);
-}
-
-- (void)loadNewData
-{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"a"] = @"list";
-    parameters[@"c"] = @"data";
-    parameters[@"type"] = @"1";
-    [manager  GET:LCCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
-        self.maxtime = responseObject[@"info"][@"maxtime"];
-        self.topics = [LCTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-//        NSLog(@"%@", self.topics);
-        
-#warning ----
-        [self.tableView reloadData];
-        [self headerEndRefreshing];
-
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self headerEndRefreshing];
-
-    }];
-    
-
+   
 }
 - (void)headerEndRefreshing
 {
-//     self.headerLabel.text = @"下拉加载更多";
-//    self.headerLabel.backgroundColor = [UIColor redColor];
     self.headerRefreshing = NO;
     [UIView animateWithDuration:0.25 animations:^{
         UIEdgeInsets inset = self.tableView.contentInset;
@@ -206,7 +256,7 @@
         self.tableView.contentInset = inset;
     }];
     
-    NSLog(@"%@----%@", NSStringFromCGPoint(self.tableView.contentOffset), NSStringFromUIEdgeInsets(self.tableView.contentInset) );
+
 }
 - (void)dealHeader
 {
@@ -235,46 +285,20 @@
 }
 - (void)footerBeginRefreshing
 {
+    if (self.headerRefreshing) return;
     if (self.isFooterRefreshing) return ;
     self.footerRefreshing = YES;
     self.footLabel.text = @"正在刷新...";
     self.footLabel.backgroundColor = [UIColor blueColor];
     NSLog(@"%@----%@", NSStringFromCGRect(self.footLabel.frame),NSStringFromCGRect(self.footView.frame));
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        self.dataCount += 5;
-//        [self.tableView reloadData];
+
          [self loadMoreTopics];
-        //结束刷新
-//        [self  footerEndRefreshing];
+
     });
-    
-//    [self loadMoreTopics];
-}
-
-
-- (void)loadMoreTopics
-{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"a"] = @"list";
-    parameters[@"c"] = @"data";
-    parameters[@"type"] = @"1";
-    parameters[@"maxtime"] = self.maxtime;
-    [manager  GET:LCCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
-        self.maxtime = responseObject[@"info"][@"maxtime"];
-       NSArray *arr = [LCTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        [self.topics addObjectsFromArray:arr];
-#warning ----
-        [self.tableView reloadData];
-        [self footerEndRefreshing];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self footerEndRefreshing];
-    }];
-    
 
 }
+
 - (void)footerEndRefreshing
 {
     self.footLabel.text = @"上拉加载更多";

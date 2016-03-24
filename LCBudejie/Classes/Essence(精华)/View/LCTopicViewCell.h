@@ -11,5 +11,5 @@
 @interface LCTopicViewCell : UITableViewCell
 
 @property (nonatomic, strong)LCTopic *topic;
-+ (instancetype)topicCellWithTableView:(UITableView *)tableview;
+
 @end

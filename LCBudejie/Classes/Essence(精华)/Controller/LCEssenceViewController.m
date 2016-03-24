@@ -59,7 +59,8 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger i = scrollView.contentOffset.x / LCScreenW + 0.5;
-    [self titleClick:self.titleView.subviews[i]];
+//    [self titleClick:self.titleView.subviews[i]];
+      [self dealTitleClick:self.titleView.subviews[i]];
 }
 - (void)setupAllChildController
 {
@@ -143,9 +144,7 @@
         if (i == 0)
         {
             [self titleClick:button];
-//            [button.titleLabel sizeToFit];
-//            self.titleLineView.lc_width = button.titleLabel.lc_width;
-//            self.titleLineView.lc_centerX = button.titleLabel.lc_centerX;
+//           
         }
     }
 }
@@ -155,9 +154,15 @@
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:LCTitleButtonDidRepeatClickNotification object:nil];
     }
+    [self dealTitleClick:btn];
+    
+}
+
+- (void)dealTitleClick:(LCTitleButton *)btn
+{
     self.selectorBtn.selected = NO;
     
-   
+    
     btn.selected = YES;
     self.selectorBtn = btn;
     NSInteger i = btn.tag;
@@ -168,8 +173,7 @@
         self.titleLineView.lc_centerX = btn.lc_centerX;
     }];
     [self setupChildView:i];
-    
-    
+
 }
 - (void)setupChildView:(NSInteger)i
 {

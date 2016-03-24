@@ -24,15 +24,9 @@
 @end
 @implementation LCTopicViewCell
 
-+ (instancetype)topicCellWithTableView:(UITableView *)tableview
+- (void)awakeFromNib
 {
-    static NSString *ID = @"cell";
-    LCTopicViewCell *cell = [tableview dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil)
-    {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"LCTopicViewCell" owner:nil options:nil] lastObject];
-    }
-    return cell;
+    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 
 - (void)setTopic:(LCTopic *)topic
@@ -41,24 +35,20 @@
     self.nameLabel.text = topic.name;
     self.createdAtLabel.text = topic.passtime;
     self.text_label.text = topic.text;
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    
+    UIImage *placeholder = [UIImage lc_circleImageNamed:@"defaultUserIcon"];
+    
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:placeholder options:0 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image == nil) return;
-#warning 头像处理---
+        self.profileImageView.image = [image lc_circleImage];
     }];
-//    [self.dingButton setTitle:topic.ding forState:UIControlStateNormal];
+
     
     [self setTitle:self.dingButton number:topic.ding placeholder:@"顶"];
     [self setTitle:self.caiButton number:topic.cai placeholder:@"踩"];
     [self setTitle:self.repostButton number:topic.repost placeholder:@"转"];
     [self setTitle:self.commentButton number:topic.comment placeholder:@"评论"];
-//     [self.caiButton setTitle:topic.cai forState:UIControlStateNormal];
-//     [self.repostButton setTitle:topic.repost forState:UIControlStateNormal];
-//     [self.commentButton setTitle:topic.comment forState:UIControlStateNormal];
-    
-//    self.dingButton.titleLabel.text = [NSString stringWithFormat:@"%@",topic.ding];
-//    self.caiButton.titleLabel.text = topic.cai;
-//    self.repostButton.titleLabel.text = topic.repost;
-//    self.commentButton.titleLabel.text = topic.comment;
+
 }
 
 
@@ -78,7 +68,7 @@
 }
 - (void)setFrame:(CGRect)frame
 {
-    frame.size.height -= 5;
+    frame.size.height -= 10;
     [super setFrame:frame];
 }
 @end

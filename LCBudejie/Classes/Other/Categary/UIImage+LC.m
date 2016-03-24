@@ -15,4 +15,20 @@
     UIImage *image = [UIImage imageNamed:imageName];
     return [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
+
+- (instancetype)lc_circleImage
+{
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, self.size.width, self.size.height)];
+    [path addClip];
+    [self drawAtPoint:CGPointZero];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
++ (instancetype)lc_circleImageNamed:(NSString *)imageName
+{
+    return [[self imageNamed:imageName] lc_circleImage];
+}
 @end

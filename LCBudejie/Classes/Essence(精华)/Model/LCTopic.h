@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef NS_ENUM(NSInteger, LCTopicType) {
+    LCTopicTypeAll = 1,
+    LCTopicTypePicture = 10,
+    LCTopicTypeWord = 29,
+    LCTopicTypeVoice = 31,
+    LCTopicTypeVideo = 41
+};
+
+
 @interface LCTopic : NSObject
 /**用户名字*/
 @property (nonatomic, strong) NSString *name;
@@ -25,4 +35,6 @@
 @property (nonatomic, strong) NSString *repost;
 /**评论数*/
 @property (nonatomic, strong) NSString *comment;
+
+@property (nonatomic, assign) NSInteger type;
 @end
