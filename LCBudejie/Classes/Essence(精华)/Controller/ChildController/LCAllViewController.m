@@ -56,7 +56,7 @@ static NSString *const LCTopicCellId = @"LCTopicCellId";
     
 
     [self setupHeaderFooterView];
-    self.tableView.rowHeight = 250;
+//    self.tableView.rowHeight = 250;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"LCTopicViewCell" bundle:nil] forCellReuseIdentifier:LCTopicCellId];
     
@@ -150,6 +150,15 @@ static NSString *const LCTopicCellId = @"LCTopicCellId";
     return cell;
    
 }
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LCTopic *topic = self.topics[indexPath.row];
+    
+  
+    return topic.rowHeight;
+}
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     if (self.tableView.contentOffset.y <= -(self.tableView.contentInset.top + self.headerView.lc_height))
@@ -176,7 +185,7 @@ static NSString *const LCTopicCellId = @"LCTopicCellId";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"1";
+    parameters[@"type"] = @"31";
    
     [self.manager  GET:LCCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         self.maxtime = responseObject[@"info"][@"maxtime"];
@@ -203,7 +212,7 @@ static NSString *const LCTopicCellId = @"LCTopicCellId";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"1";
+    parameters[@"type"] = @"31";
     parameters[@"maxtime"] = self.maxtime;
     [self.manager  GET:LCCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         self.maxtime = responseObject[@"info"][@"maxtime"];

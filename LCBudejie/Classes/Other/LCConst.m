@@ -17,3 +17,6 @@ NSString * const LCTabBarButtonDidRepeatClickNotification = @"LCTabBarButtonDidR
  NSString * const LCTitleButtonDidRepeatClickNotification = @"LCTitleButtonDidRepeatClickNotification";
 // 请求路径
  NSString *const LCCommonURL =  @"http://api.budejie.com/api/api_open.php";
+
+//cell展示的间距
+CGFloat const LCMargin = 10;

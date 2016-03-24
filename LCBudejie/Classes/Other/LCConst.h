@@ -19,3 +19,6 @@ UIKIT_EXTERN NSString * const LCTitleButtonDidRepeatClickNotification;
 
 //请求路径
 UIKIT_EXTERN NSString *const LCCommonURL;
+
+//cell展示的间距
+UIKIT_EXTERN CGFloat const LCMargin;

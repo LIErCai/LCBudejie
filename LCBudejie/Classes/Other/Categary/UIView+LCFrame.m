@@ -10,6 +10,11 @@
 
 @implementation UIView (LCFrame)
 
++ (instancetype)lc_viewFromXib
+{
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].lastObject;
+}
+
 - (void)setLc_height:(CGFloat)lc_height
 {
     CGRect rect = self.frame;

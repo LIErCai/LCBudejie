@@ -17,4 +17,5 @@
 @property CGFloat lc_centerX;
 @property CGFloat lc_centerY;
 
++ (instancetype)lc_viewFromXib;
 @end

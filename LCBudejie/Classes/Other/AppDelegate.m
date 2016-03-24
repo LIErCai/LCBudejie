@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LCTabBarController.h"
 #import "LCADViewController.h"
+#import <AFNetworking.h>
 @interface AppDelegate ()
 
 @end
@@ -25,6 +26,8 @@
 
     self.window.rootViewController = tabVc;
     [self.window makeKeyAndVisible];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     return YES;
 }
 

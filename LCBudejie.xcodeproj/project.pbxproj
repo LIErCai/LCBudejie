@@ -43,6 +43,13 @@
 		84404BFE1C92D920008FE8C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84404BFB1C92D920008FE8C1 /* main.m */; };
 		8462E03C1C9C27F8007620FB /* LCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462E03B1C9C27F8007620FB /* LCConst.m */; };
 		8462E03F1C9C3530007620FB /* LCTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462E03E1C9C3530007620FB /* LCTitleButton.m */; };
+		84665A3B1CA4053E002D1A97 /* LCTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84665A3A1CA4053E002D1A97 /* LCTopicVideoView.m */; };
+		84665A3E1CA40553002D1A97 /* LCTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84665A3D1CA40553002D1A97 /* LCTopicVoiceView.m */; };
+		84665A411CA40569002D1A97 /* LCTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84665A401CA40569002D1A97 /* LCTopicPictureView.m */; };
+		84665A431CA40587002D1A97 /* LCTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84665A421CA40587002D1A97 /* LCTopicPictureView.xib */; };
+		84665A451CA40592002D1A97 /* LCTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84665A441CA40592002D1A97 /* LCTopicVideoView.xib */; };
+		84665A471CA405A7002D1A97 /* LCTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84665A461CA405A7002D1A97 /* LCTopicVoiceView.xib */; };
+		84665A491CA41D4D002D1A97 /* LCTopicViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84665A481CA41D4D002D1A97 /* LCTopicViewCell.xib */; };
 		847E62171C98217C00A55754 /* LCADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 847E62161C98217C00A55754 /* LCADItem.m */; };
 		847E621A1C982DAE00A55754 /* LCSubTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 847E62191C982DAE00A55754 /* LCSubTagItem.m */; };
 		847E621D1C98306A00A55754 /* LCSubTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847E621C1C98306A00A55754 /* LCSubTagCell.m */; };
@@ -67,7 +74,6 @@
 		849942921C997F310031CBB0 /* LCSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849942901C997F310031CBB0 /* LCSquareCell.xib */; };
 		84E66F5C1CA15616000302F7 /* LCTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E66F5B1CA15616000302F7 /* LCTopic.m */; };
 		84E66F601CA16B45000302F7 /* LCTopicViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E66F5E1CA16B45000302F7 /* LCTopicViewCell.m */; };
-		84E66F611CA16B45000302F7 /* LCTopicViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E66F5F1CA16B45000302F7 /* LCTopicViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +139,16 @@
 		8462E03B1C9C27F8007620FB /* LCConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCConst.m; sourceTree = "<group>"; };
 		8462E03D1C9C3530007620FB /* LCTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTitleButton.h; sourceTree = "<group>"; };
 		8462E03E1C9C3530007620FB /* LCTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTitleButton.m; sourceTree = "<group>"; };
+		84665A391CA4053E002D1A97 /* LCTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTopicVideoView.h; sourceTree = "<group>"; };
+		84665A3A1CA4053E002D1A97 /* LCTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTopicVideoView.m; sourceTree = "<group>"; };
+		84665A3C1CA40553002D1A97 /* LCTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTopicVoiceView.h; sourceTree = "<group>"; };
+		84665A3D1CA40553002D1A97 /* LCTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTopicVoiceView.m; sourceTree = "<group>"; };
+		84665A3F1CA40569002D1A97 /* LCTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTopicPictureView.h; sourceTree = "<group>"; };
+		84665A401CA40569002D1A97 /* LCTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTopicPictureView.m; sourceTree = "<group>"; };
+		84665A421CA40587002D1A97 /* LCTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCTopicPictureView.xib; sourceTree = "<group>"; };
+		84665A441CA40592002D1A97 /* LCTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCTopicVideoView.xib; sourceTree = "<group>"; };
+		84665A461CA405A7002D1A97 /* LCTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCTopicVoiceView.xib; sourceTree = "<group>"; };
+		84665A481CA41D4D002D1A97 /* LCTopicViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCTopicViewCell.xib; sourceTree = "<group>"; };
 		847E62151C98217C00A55754 /* LCADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCADItem.h; sourceTree = "<group>"; };
 		847E62161C98217C00A55754 /* LCADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCADItem.m; sourceTree = "<group>"; };
 		847E62181C982DAE00A55754 /* LCSubTagItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSubTagItem.h; sourceTree = "<group>"; };
@@ -172,7 +188,6 @@
 		84E66F5B1CA15616000302F7 /* LCTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTopic.m; sourceTree = "<group>"; };
 		84E66F5D1CA16B45000302F7 /* LCTopicViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTopicViewCell.h; sourceTree = "<group>"; };
 		84E66F5E1CA16B45000302F7 /* LCTopicViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTopicViewCell.m; sourceTree = "<group>"; };
-		84E66F5F1CA16B45000302F7 /* LCTopicViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCTopicViewCell.xib; sourceTree = "<group>"; };
 		AF71F20D7475EB4FC8DB1592 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -422,7 +437,16 @@
 				8462E03E1C9C3530007620FB /* LCTitleButton.m */,
 				84E66F5D1CA16B45000302F7 /* LCTopicViewCell.h */,
 				84E66F5E1CA16B45000302F7 /* LCTopicViewCell.m */,
-				84E66F5F1CA16B45000302F7 /* LCTopicViewCell.xib */,
+				84665A481CA41D4D002D1A97 /* LCTopicViewCell.xib */,
+				84665A391CA4053E002D1A97 /* LCTopicVideoView.h */,
+				84665A3A1CA4053E002D1A97 /* LCTopicVideoView.m */,
+				84665A441CA40592002D1A97 /* LCTopicVideoView.xib */,
+				84665A3C1CA40553002D1A97 /* LCTopicVoiceView.h */,
+				84665A3D1CA40553002D1A97 /* LCTopicVoiceView.m */,
+				84665A461CA405A7002D1A97 /* LCTopicVoiceView.xib */,
+				84665A3F1CA40569002D1A97 /* LCTopicPictureView.h */,
+				84665A401CA40569002D1A97 /* LCTopicPictureView.m */,
+				84665A421CA40587002D1A97 /* LCTopicPictureView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -707,23 +731,26 @@
 			files = (
 				842B02621C945516003B6095 /* LaunchImage-700-568h@2x.png in Resources */,
 				842B02671C945516003B6095 /* LaunchImage@2x.png in Resources */,
+				84665A451CA40592002D1A97 /* LCTopicVideoView.xib in Resources */,
 				842B02601C945516003B6095 /* Contents.json in Resources */,
 				84404BEB1C92D73F008FE8C1 /* LaunchScreen.storyboard in Resources */,
 				8493E4261C99935300BB2B8F /* LCWebViewController.xib in Resources */,
 				84404BE81C92D73F008FE8C1 /* Assets.xcassets in Resources */,
 				847E62301C986DF600A55754 /* LCFastLoginRegistView.xib in Resources */,
 				847E62261C9851EF00A55754 /* LCLoginRegisterViewController.xib in Resources */,
+				84665A431CA40587002D1A97 /* LCTopicPictureView.xib in Resources */,
 				842B02641C945516003B6095 /* LaunchImage-800-667h@2x.png in Resources */,
 				847E622B1C9857D700A55754 /* LCLoginRegistView.xib in Resources */,
+				84665A471CA405A7002D1A97 /* LCTopicVoiceView.xib in Resources */,
 				842B02561C945485003B6095 /* LCADViewController.xib in Resources */,
 				847E62211C9847D100A55754 /* LCFriendTrendViewController.xib in Resources */,
 				842B02631C945516003B6095 /* LaunchImage-700@2x.png in Resources */,
 				842B02611C945516003B6095 /* LaunchImage-568h@2x.png in Resources */,
 				849942921C997F310031CBB0 /* LCSquareCell.xib in Resources */,
-				84E66F611CA16B45000302F7 /* LCTopicViewCell.xib in Resources */,
 				842B02651C945516003B6095 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
 				84404BE61C92D73F008FE8C1 /* Main.storyboard in Resources */,
 				842B02661C945516003B6095 /* LaunchImage.png in Resources */,
+				84665A491CA41D4D002D1A97 /* LCTopicViewCell.xib in Resources */,
 				847E621F1C98309100A55754 /* LCSubTagCell.xib in Resources */,
 				8499428A1C9974D80031CBB0 /* LCMineViewController.storyboard in Resources */,
 			);
@@ -796,7 +823,9 @@
 				841474031C9A443900512FFB /* LCAllViewController.m in Sources */,
 				8437F58B1C92DE6E000926BA /* LCTabBarController.m in Sources */,
 				841474091C9A447600512FFB /* LCSoundViewController.m in Sources */,
+				84665A3E1CA40553002D1A97 /* LCTopicVoiceView.m in Sources */,
 				847E621D1C98306A00A55754 /* LCSubTagCell.m in Sources */,
+				84665A411CA40569002D1A97 /* LCTopicPictureView.m in Sources */,
 				8437F5941C92DFE2000926BA /* LCMineViewController.m in Sources */,
 				84404BFE1C92D920008FE8C1 /* main.m in Sources */,
 				8414740C1C9A44A000512FFB /* LCPictureViewController.m in Sources */,
@@ -822,6 +851,7 @@
 				842B02541C945436003B6095 /* LCADViewController.m in Sources */,
 				8437F5971C92E002000926BA /* LCNewViewController.m in Sources */,
 				847E621A1C982DAE00A55754 /* LCSubTagItem.m in Sources */,
+				84665A3B1CA4053E002D1A97 /* LCTopicVideoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

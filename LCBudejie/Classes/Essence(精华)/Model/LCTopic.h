@@ -35,6 +35,32 @@ typedef NS_ENUM(NSInteger, LCTopicType) {
 @property (nonatomic, strong) NSString *repost;
 /**评论数*/
 @property (nonatomic, strong) NSString *comment;
-
+/**要显示的cell的类型*/
 @property (nonatomic, assign) NSInteger type;
+
+/**小图*/
+@property (nonatomic, strong) NSString *image0;
+/**中图*/
+@property (nonatomic, strong) NSString *image2;
+/**大图*/
+@property (nonatomic, strong) NSString *image1;
+/**音频时长*/
+@property (nonatomic, assign) NSInteger voicetime;
+/**视频时长*/
+@property (nonatomic, assign) NSInteger videotime;
+/**播放次数*/
+@property (nonatomic, assign) NSInteger playcount;
+
+/**图片的高度*/
+@property (nonatomic, assign) CGFloat height;
+/**图片的宽度*/
+@property (nonatomic, assign) CGFloat width;
+/**最热评论*/
+@property (nonatomic, strong) NSArray *top_cmt;
+
+/**每行cell的高度*/
+@property (nonatomic, assign) CGRect middleFrame;
+
+/**的高度*/
+@property (nonatomic, assign) CGFloat rowHeight;
 @end
