@@ -109,6 +109,7 @@
     if (topic.type == LCTopicTypePicture)
     {
         self.pictureView.hidden = NO;
+        self.pictureView.topic = topic;
         self.videoView.hidden = YES;
         self.voiceView.hidden = YES;
     }else if (topic.type == LCTopicTypeVoice)
@@ -121,6 +122,7 @@
     {
         self.pictureView.hidden = YES;
         self.videoView.hidden = NO;
+        self.videoView.topic = topic;
         self.voiceView.hidden = YES;
     }else if(topic.type == LCTopicTypeWord)
     {

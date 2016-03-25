@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class LCTopic;
 @interface LCTopicVideoView : UIView
+
+@property (nonatomic, strong) LCTopic *topic;
 
 @end

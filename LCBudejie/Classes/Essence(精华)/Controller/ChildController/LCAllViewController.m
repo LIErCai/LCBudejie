@@ -185,7 +185,7 @@ static NSString *const LCTopicCellId = @"LCTopicCellId";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"31";
+    parameters[@"type"] = @"1";
    
     [self.manager  GET:LCCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         self.maxtime = responseObject[@"info"][@"maxtime"];
@@ -212,7 +212,7 @@ static NSString *const LCTopicCellId = @"LCTopicCellId";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"31";
+    parameters[@"type"] = @"1";
     parameters[@"maxtime"] = self.maxtime;
     [self.manager  GET:LCCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         self.maxtime = responseObject[@"info"][@"maxtime"];

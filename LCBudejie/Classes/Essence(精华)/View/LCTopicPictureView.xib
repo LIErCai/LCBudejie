@@ -7,13 +7,40 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="qyH-gS-2VT">
-            <rect key="frame" x="0.0" y="0.0" width="236" height="140"/>
+        <view contentMode="scaleToFill" id="qyH-gS-2VT" customClass="LCTopicPictureView">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="279"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sCU-Cy-cLi">
+                    <rect key="frame" x="0.0" y="0.0" width="332" height="279"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="wyD-Ol-FrH">
+                    <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="KRm-bm-Bai"/>
+                        <constraint firstAttribute="height" constant="31" id="shZ-n1-oKJ"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" red="0.85910616449999999" green="1" blue="0.76749404870000004" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="sCU-Cy-cLi" secondAttribute="trailing" id="1aw-R1-hzU"/>
+                <constraint firstItem="wyD-Ol-FrH" firstAttribute="top" secondItem="qyH-gS-2VT" secondAttribute="top" id="JX9-Fi-ZEy"/>
+                <constraint firstItem="sCU-Cy-cLi" firstAttribute="top" secondItem="qyH-gS-2VT" secondAttribute="top" id="TB6-Eb-hhQ"/>
+                <constraint firstItem="wyD-Ol-FrH" firstAttribute="leading" secondItem="qyH-gS-2VT" secondAttribute="leading" id="UNQ-vi-8pM"/>
+                <constraint firstAttribute="bottom" secondItem="sCU-Cy-cLi" secondAttribute="bottom" id="VOh-LM-8rM"/>
+                <constraint firstItem="sCU-Cy-cLi" firstAttribute="leading" secondItem="qyH-gS-2VT" secondAttribute="leading" id="vQD-qJ-UY1"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="347" y="47"/>
+            <connections>
+                <outlet property="gifImageView" destination="wyD-Ol-FrH" id="z7X-5j-OpW"/>
+                <outlet property="pictureImageVIew" destination="sCU-Cy-cLi" id="cPD-dm-0e1"/>
+            </connections>
+            <point key="canvasLocation" x="395" y="116.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="common-gif" width="31" height="31"/>
+    </resources>
 </document>
