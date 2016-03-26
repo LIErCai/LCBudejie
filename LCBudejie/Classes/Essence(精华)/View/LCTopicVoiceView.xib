@@ -11,6 +11,12 @@
             <rect key="frame" x="0.0" y="0.0" width="338" height="235"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="UFK-H5-udy">
+                    <rect key="frame" x="0.0" y="43" width="338" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="8ZX-EF-y67"/>
+                    </constraints>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ipU-Eg-yDm">
                     <rect key="frame" x="0.0" y="0.0" width="338" height="235"/>
                 </imageView>
@@ -40,8 +46,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.50721267219999999" blue="0.67122566309999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="UFK-H5-udy" firstAttribute="leading" secondItem="jkp-Kr-sHn" secondAttribute="leading" id="5OO-ng-dBk"/>
                 <constraint firstItem="riB-Hn-ubM" firstAttribute="centerY" secondItem="jkp-Kr-sHn" secondAttribute="centerY" id="FAW-Ij-jTW"/>
                 <constraint firstAttribute="trailing" secondItem="PXz-FB-yMW" secondAttribute="trailing" id="GDP-1o-yBi"/>
+                <constraint firstAttribute="trailing" secondItem="UFK-H5-udy" secondAttribute="trailing" id="L9H-V0-Gjx"/>
                 <constraint firstAttribute="bottom" secondItem="XpR-2C-GWF" secondAttribute="bottom" id="Lr9-zX-0jS"/>
                 <constraint firstItem="ipU-Eg-yDm" firstAttribute="top" secondItem="jkp-Kr-sHn" secondAttribute="top" id="YnS-Ik-bPo"/>
                 <constraint firstItem="PXz-FB-yMW" firstAttribute="top" secondItem="jkp-Kr-sHn" secondAttribute="top" id="aMy-PR-P7C"/>
@@ -49,11 +57,13 @@
                 <constraint firstAttribute="bottom" secondItem="ipU-Eg-yDm" secondAttribute="bottom" id="bpt-6P-pfg"/>
                 <constraint firstAttribute="trailing" secondItem="XpR-2C-GWF" secondAttribute="trailing" id="nYV-9j-SdN"/>
                 <constraint firstAttribute="trailing" secondItem="ipU-Eg-yDm" secondAttribute="trailing" id="t2D-OQ-Yza"/>
+                <constraint firstItem="UFK-H5-udy" firstAttribute="top" secondItem="PXz-FB-yMW" secondAttribute="bottom" constant="25" id="xD3-s8-CpD"/>
                 <constraint firstItem="riB-Hn-ubM" firstAttribute="centerX" secondItem="jkp-Kr-sHn" secondAttribute="centerX" id="zAD-Ga-jdp"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backgroundImageView" destination="UFK-H5-udy" id="VYG-fH-mEC"/>
                 <outlet property="playCountLabel" destination="PXz-FB-yMW" id="vQw-Hw-Dh5"/>
                 <outlet property="voiceImageView" destination="ipU-Eg-yDm" id="wPB-gP-wDX"/>
                 <outlet property="voiceTimeLabel" destination="XpR-2C-GWF" id="Nbr-CZ-qdR"/>
@@ -62,6 +72,7 @@
         </view>
     </objects>
     <resources>
+        <image name="imageBackground" width="75" height="15"/>
         <image name="playButton" width="63" height="63"/>
         <image name="playButtonClick" width="63" height="63"/>
         <image name="playButtonPlay" width="30" height="30"/>

@@ -9,6 +9,8 @@
 
 #import "LCConst.h"
 #import "UIImage+LC.h"
+#import "UIImageView+LCDownload.h"
+
 #define  LCScreenW  [UIScreen mainScreen].bounds.size.width
 #define  LCScreenH [UIScreen mainScreen].bounds.size.height
 

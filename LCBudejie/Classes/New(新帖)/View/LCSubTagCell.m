@@ -8,7 +8,7 @@
 
 #import "LCSubTagCell.h"
 #import "LCSubTagItem.h"
-#import <UIImageView+WebCache.h>
+
 @interface LCSubTagCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -31,17 +31,18 @@
     
     [self setupSubTitle];
     
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:item.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] options:SDWebImageCacheMemoryOnly completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
-        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
-        [path addClip];
-        
-        [image drawAtPoint:CGPointZero];
-        
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        self.iconView.image = image;
-    } ];
+//    [self.iconView sd_setImageWithURL:[NSURL URLWithString:item.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] options:SDWebImageCacheMemoryOnly completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
+//        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+//        [path addClip];
+//        
+//        [image drawAtPoint:CGPointZero];
+//        
+//        image = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
+//        self.iconView.image = image;
+//    } ];
+    [self.iconView lc_setHeaderImage:item.image_list placeholder:@"defaultUserIcon"];
 }
 
 - (void)setupSubTitle

@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *videoTimeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *videoImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
 @implementation LCTopicVideoView
@@ -26,8 +27,13 @@
 - (void)setTopic:(LCTopic *)topic
 {
     _topic = topic;
+    self.backgroundImageView.hidden = NO;
+    [self.videoImageView lc_setOriginImage:topic.image1 thumbnailImage:topic.image0 placeholder:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (!image) return;
+        self.backgroundImageView.hidden = YES;
+    }];
     
-    [self.videoImageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:nil];
+//    [self.videoImageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:nil];
     if (topic.playcount >= 10000)
     {
         self.videoplaycountLabel.text = [NSString stringWithFormat:@"%.1f万播放", topic.playcount / 10000.0];

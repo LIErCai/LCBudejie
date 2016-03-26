@@ -44,6 +44,8 @@ typedef NS_ENUM(NSInteger, LCTopicType) {
 @property (nonatomic, strong) NSString *image2;
 /**大图*/
 @property (nonatomic, strong) NSString *image1;
+/**是否为动态图*/
+@property (nonatomic, assign) BOOL is_gif;
 /**音频时长*/
 @property (nonatomic, assign) NSInteger voicetime;
 /**视频时长*/
@@ -63,4 +65,6 @@ typedef NS_ENUM(NSInteger, LCTopicType) {
 
 /**的高度*/
 @property (nonatomic, assign) CGFloat rowHeight;
+/**是否是超长图*/
+@property (nonatomic, assign, getter=isBigImage) BOOL bigImage;
 @end

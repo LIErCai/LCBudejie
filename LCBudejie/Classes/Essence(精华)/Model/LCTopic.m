@@ -28,6 +28,15 @@
         CGFloat middleY = _rowHeight;
         CGFloat middleW = textMaxSize.width;
         CGFloat middleH = middleW * self.height / self.width;
+        
+        if (middleH >= LCScreenH)
+        {
+            middleH = 200;
+            self.bigImage = YES;
+        }else
+        {
+            self.bigImage = NO;
+        }
         self.middleFrame = CGRectMake(middleX, middleY, middleW, middleH);
         _rowHeight += middleH + LCMargin;
     }

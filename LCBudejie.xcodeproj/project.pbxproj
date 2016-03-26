@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7970A514D20697770324DFD8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A13255C74E2132373D66B5 /* libPods.a */; };
+		84031F741CA6709F00F3FD51 /* UIImageView+LCDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 84031F731CA6709F00F3FD51 /* UIImageView+LCDownload.m */; };
 		841474031C9A443900512FFB /* LCAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841474021C9A443900512FFB /* LCAllViewController.m */; };
 		841474061C9A444E00512FFB /* LCVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841474051C9A444E00512FFB /* LCVideoViewController.m */; };
 		841474091C9A447600512FFB /* LCSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841474081C9A447600512FFB /* LCSoundViewController.m */; };
@@ -79,6 +80,8 @@
 /* Begin PBXFileReference section */
 		11653FC2223D5464D20E7DCD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		46A13255C74E2132373D66B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		84031F721CA6709F00F3FD51 /* UIImageView+LCDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LCDownload.h"; sourceTree = "<group>"; };
+		84031F731CA6709F00F3FD51 /* UIImageView+LCDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LCDownload.m"; sourceTree = "<group>"; };
 		841474011C9A443900512FFB /* LCAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCAllViewController.h; sourceTree = "<group>"; };
 		841474021C9A443900512FFB /* LCAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCAllViewController.m; sourceTree = "<group>"; };
 		841474041C9A444E00512FFB /* LCVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVideoViewController.h; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 				842B02691C945F97003B6095 /* UIView+LCFrame.m */,
 				849942861C996B7C0031CBB0 /* UITextField+Placeholder.h */,
 				849942871C996B7C0031CBB0 /* UITextField+Placeholder.m */,
+				84031F721CA6709F00F3FD51 /* UIImageView+LCDownload.h */,
+				84031F731CA6709F00F3FD51 /* UIImageView+LCDownload.m */,
 			);
 			path = Categary;
 			sourceTree = "<group>";
@@ -818,6 +823,7 @@
 				8499428D1C997AF90031CBB0 /* LCSquareItem.m in Sources */,
 				8437F59A1C92E02D000926BA /* LCPublishViewController.m in Sources */,
 				842B023A1C942547003B6095 /* LCTabBar.m in Sources */,
+				84031F741CA6709F00F3FD51 /* UIImageView+LCDownload.m in Sources */,
 				8414740F1C9A44E500512FFB /* LCPieceViewController.m in Sources */,
 				842B02431C943070003B6095 /* UIBarButtonItem+LC.m in Sources */,
 				841474031C9A443900512FFB /* LCAllViewController.m in Sources */,

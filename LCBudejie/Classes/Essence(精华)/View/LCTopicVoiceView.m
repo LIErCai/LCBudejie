@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *voiceTimeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *voiceImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
 @implementation LCTopicVoiceView
@@ -28,48 +29,54 @@
     _topic = topic;
    
 //    [self.voiceImageView sd_setImageWithURL:[NSURL URLWithString:topic.image2] placeholderImage:nil];
-    UIImage *placeholder = nil;
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
-    UIImage *originImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:topic.image1];
     
-    
-        if(originImage)
-    {
-        self.voiceImageView.image = originImage;
-    }
-    else
-    {
-        if (manager.isReachableViaWiFi)
-        {
-           // 加载大图片
-            [self.voiceImageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:placeholder];
-        }else if(manager.isReachableViaWWAN)
-        {
-            BOOL downloadOriginImageWhen3G4G = YES;
-            if(downloadOriginImageWhen3G4G)
-            {
-                //加载高清图片
-                [self.voiceImageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:placeholder];
-            }else
-            {
-                //加载小图片
-                [self.voiceImageView sd_setImageWithURL:[NSURL URLWithString:topic.image0] placeholderImage:placeholder];
-            }
-        }else//没有可用网络
-        {
-            UIImage *thumbnailImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:topic.image0];
-            if(thumbnailImage)
-            {
-               // 加载小图片
-                self.voiceImageView.image = thumbnailImage;
-            }else
-            {
-                //加载占位图片
-                self.voiceImageView.image = placeholder;
-            }
-        }
-    }
-    
+    self.backgroundImageView.hidden = NO;
+    [self.voiceImageView lc_setOriginImage:topic.image1 thumbnailImage:topic.image0 placeholder:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (!image) return;
+        self.backgroundImageView.hidden = YES;
+    }];
+//    UIImage *placeholder = nil;
+//    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+//    UIImage *originImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:topic.image1];
+//    
+//    
+//        if(originImage)
+//    {
+//        self.voiceImageView.image = originImage;
+//    }
+//    else
+//    {
+//        if (manager.isReachableViaWiFi)
+//        {
+//           // 加载大图片
+//            [self.voiceImageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:placeholder];
+//        }else if(manager.isReachableViaWWAN)
+//        {
+//            BOOL downloadOriginImageWhen3G4G = YES;
+//            if(downloadOriginImageWhen3G4G)
+//            {
+//                //加载高清图片
+//                [self.voiceImageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:placeholder];
+//            }else
+//            {
+//                //加载小图片
+//                [self.voiceImageView sd_setImageWithURL:[NSURL URLWithString:topic.image0] placeholderImage:placeholder];
+//            }
+//        }else//没有可用网络
+//        {
+//            UIImage *thumbnailImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:topic.image0];
+//            if(thumbnailImage)
+//            {
+//               // 加载小图片
+//                self.voiceImageView.image = thumbnailImage;
+//            }else
+//            {
+//                //加载占位图片
+//                self.voiceImageView.image = placeholder;
+//            }
+//        }
+//    }
+//    
     
     // 占位图片
  /*   UIImage *placeholder = nil;

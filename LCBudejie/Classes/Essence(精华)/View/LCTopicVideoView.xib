@@ -11,6 +11,12 @@
             <rect key="frame" x="0.0" y="0.0" width="299" height="172"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="imageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="XSD-5J-gC1">
+                    <rect key="frame" x="19" y="8" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="sZU-6G-lDu"/>
+                    </constraints>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iNu-k5-U6z">
                     <rect key="frame" x="0.0" y="0.0" width="299" height="172"/>
                 </imageView>
@@ -45,7 +51,10 @@
                 <constraint firstAttribute="trailing" secondItem="IDI-EA-bjt" secondAttribute="trailing" id="4CA-Lp-44Q"/>
                 <constraint firstItem="IDI-EA-bjt" firstAttribute="top" secondItem="xya-Mk-daU" secondAttribute="top" id="5KE-7j-Kgw"/>
                 <constraint firstItem="iNu-k5-U6z" firstAttribute="top" secondItem="xya-Mk-daU" secondAttribute="top" id="82W-nW-3Ep"/>
+                <constraint firstAttribute="trailing" secondItem="XSD-5J-gC1" secondAttribute="trailing" id="89U-EP-74o"/>
                 <constraint firstAttribute="bottom" secondItem="6az-lO-Qnd" secondAttribute="bottom" id="8Fm-bi-k7w"/>
+                <constraint firstItem="XSD-5J-gC1" firstAttribute="leading" secondItem="xya-Mk-daU" secondAttribute="leading" id="F5s-We-lNg"/>
+                <constraint firstItem="XSD-5J-gC1" firstAttribute="top" secondItem="xya-Mk-daU" secondAttribute="top" constant="25" id="HV9-bq-5kO"/>
                 <constraint firstAttribute="trailing" secondItem="6az-lO-Qnd" secondAttribute="trailing" id="QTh-gJ-D1b"/>
                 <constraint firstAttribute="trailing" secondItem="iNu-k5-U6z" secondAttribute="trailing" id="QkY-yV-Pbw"/>
                 <constraint firstItem="iNu-k5-U6z" firstAttribute="leading" secondItem="xya-Mk-daU" secondAttribute="leading" id="ZtY-io-I8k"/>
@@ -54,6 +63,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backgroundImageView" destination="XSD-5J-gC1" id="EvL-6A-jzE"/>
                 <outlet property="videoImageView" destination="iNu-k5-U6z" id="yvt-xo-JwC"/>
                 <outlet property="videoTimeLabel" destination="6az-lO-Qnd" id="pgm-7Y-UPe"/>
                 <outlet property="videoplaycountLabel" destination="IDI-EA-bjt" id="dIH-J0-oPw"/>
@@ -62,6 +72,7 @@
         </view>
     </objects>
     <resources>
+        <image name="imageBackground" width="75" height="15"/>
         <image name="video-play" width="71" height="71"/>
     </resources>
 </document>
