@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7970A514D20697770324DFD8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A13255C74E2132373D66B5 /* libPods.a */; };
 		84031F741CA6709F00F3FD51 /* UIImageView+LCDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 84031F731CA6709F00F3FD51 /* UIImageView+LCDownload.m */; };
+		84080B541CA7F34C00136D7E /* LCSeeBigPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84080B521CA7F34C00136D7E /* LCSeeBigPictureViewController.m */; };
+		84080B551CA7F34C00136D7E /* LCSeeBigPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84080B531CA7F34C00136D7E /* LCSeeBigPictureViewController.xib */; };
 		841474031C9A443900512FFB /* LCAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841474021C9A443900512FFB /* LCAllViewController.m */; };
 		841474061C9A444E00512FFB /* LCVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841474051C9A444E00512FFB /* LCVideoViewController.m */; };
 		841474091C9A447600512FFB /* LCSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841474081C9A447600512FFB /* LCSoundViewController.m */; };
@@ -82,6 +84,9 @@
 		46A13255C74E2132373D66B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84031F721CA6709F00F3FD51 /* UIImageView+LCDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LCDownload.h"; sourceTree = "<group>"; };
 		84031F731CA6709F00F3FD51 /* UIImageView+LCDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LCDownload.m"; sourceTree = "<group>"; };
+		84080B511CA7F34C00136D7E /* LCSeeBigPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSeeBigPictureViewController.h; sourceTree = "<group>"; };
+		84080B521CA7F34C00136D7E /* LCSeeBigPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSeeBigPictureViewController.m; sourceTree = "<group>"; };
+		84080B531CA7F34C00136D7E /* LCSeeBigPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCSeeBigPictureViewController.xib; sourceTree = "<group>"; };
 		841474011C9A443900512FFB /* LCAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCAllViewController.h; sourceTree = "<group>"; };
 		841474021C9A443900512FFB /* LCAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCAllViewController.m; sourceTree = "<group>"; };
 		841474041C9A444E00512FFB /* LCVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCVideoViewController.h; sourceTree = "<group>"; };
@@ -422,6 +427,9 @@
 				841474001C9A43D000512FFB /* ChildController */,
 				8437F58C1C92DF87000926BA /* LCEssenceViewController.h */,
 				8437F58D1C92DF87000926BA /* LCEssenceViewController.m */,
+				84080B511CA7F34C00136D7E /* LCSeeBigPictureViewController.h */,
+				84080B521CA7F34C00136D7E /* LCSeeBigPictureViewController.m */,
+				84080B531CA7F34C00136D7E /* LCSeeBigPictureViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -744,6 +752,7 @@
 				847E62301C986DF600A55754 /* LCFastLoginRegistView.xib in Resources */,
 				847E62261C9851EF00A55754 /* LCLoginRegisterViewController.xib in Resources */,
 				84665A431CA40587002D1A97 /* LCTopicPictureView.xib in Resources */,
+				84080B551CA7F34C00136D7E /* LCSeeBigPictureViewController.xib in Resources */,
 				842B02641C945516003B6095 /* LaunchImage-800-667h@2x.png in Resources */,
 				847E622B1C9857D700A55754 /* LCLoginRegistView.xib in Resources */,
 				84665A471CA405A7002D1A97 /* LCTopicVoiceView.xib in Resources */,
@@ -840,6 +849,7 @@
 				847E62291C9857BB00A55754 /* LCLoginRegistView.m in Sources */,
 				84E66F5C1CA15616000302F7 /* LCTopic.m in Sources */,
 				8493E42C1C99A60900BB2B8F /* LCCleanFileTool.m in Sources */,
+				84080B541CA7F34C00136D7E /* LCSeeBigPictureViewController.m in Sources */,
 				8437F5911C92DFB7000926BA /* LCFriendTrendViewController.m in Sources */,
 				847E62251C9851EF00A55754 /* LCLoginRegisterViewController.m in Sources */,
 				849942881C996B7C0031CBB0 /* UITextField+Placeholder.m in Sources */,

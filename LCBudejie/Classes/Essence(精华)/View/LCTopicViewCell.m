@@ -76,13 +76,7 @@
     self.nameLabel.text = topic.name;
     self.createdAtLabel.text = topic.passtime;
     self.text_label.text = topic.text;
-    
-//    UIImage *placeholder = [UIImage lc_circleImageNamed:@"defaultUserIcon"];
-//    
-//    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:placeholder options:0 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//        if (image == nil) return;
-//        self.profileImageView.image = [image lc_circleImage];
-//    }];
+
 
     [self.profileImageView lc_setHeaderImage:topic.profile_image placeholder:@"defaultUserIcon"];
 

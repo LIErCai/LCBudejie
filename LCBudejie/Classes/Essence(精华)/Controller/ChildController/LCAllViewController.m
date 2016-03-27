@@ -174,7 +174,8 @@ static NSString *const LCTopicCellId = @"LCTopicCellId";
     [self dealHeader];
     [self dealFooter];
     
-    
+    // 清楚内存缓存
+    [[SDImageCache sharedImageCache] clearMemory];
 }
 
 
@@ -299,7 +300,7 @@ static NSString *const LCTopicCellId = @"LCTopicCellId";
     self.footerRefreshing = YES;
     self.footLabel.text = @"正在刷新...";
     self.footLabel.backgroundColor = [UIColor blueColor];
-    NSLog(@"%@----%@", NSStringFromCGRect(self.footLabel.frame),NSStringFromCGRect(self.footView.frame));
+  
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
          [self loadMoreTopics];
