@@ -9,6 +9,7 @@
 #import "LCTopicVideoView.h"
 #import "LCTopic.h"
 #import <UIImageView+WebCache.h>
+#import "LCSeeBigPictureViewController.h"
 @interface LCTopicVideoView()
 @property (weak, nonatomic) IBOutlet UILabel *videoplaycountLabel;
 
@@ -22,6 +23,17 @@
 - (void)awakeFromNib
 {
     self.autoresizingMask = UIViewAutoresizingNone;
+    self.videoImageView.userInteractionEnabled = YES;
+    [self.videoImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBigPicture)]];
+}
+
+
+
+- (void)seeBigPicture
+{
+    LCSeeBigPictureViewController *vc = [[LCSeeBigPictureViewController alloc] init];
+    vc.topic = self.topic;
+    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)setTopic:(LCTopic *)topic

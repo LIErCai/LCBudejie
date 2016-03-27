@@ -10,6 +10,7 @@
 #import "LCTopic.h"
 #import <UIImageView+WebCache.h>
 #import <AFNetworking.h>
+#import "LCSeeBigPictureViewController.h"
 @interface LCTopicVoiceView()
 @property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *voiceTimeLabel;
@@ -22,8 +23,18 @@
 - (void)awakeFromNib
 {
     self.autoresizingMask = UIViewAutoresizingNone;
+    self.voiceImageView.userInteractionEnabled = YES;
+    [self.voiceImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBigPicture)]];
 }
 
+
+
+- (void)seeBigPicture
+{
+    LCSeeBigPictureViewController *vc = [[LCSeeBigPictureViewController alloc] init];
+    vc.topic = self.topic;
+    [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+}
 - (void)setTopic:(LCTopic *)topic
 {
     _topic = topic;
