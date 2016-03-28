@@ -77,6 +77,7 @@
 		849942921C997F310031CBB0 /* LCSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849942901C997F310031CBB0 /* LCSquareCell.xib */; };
 		84E66F5C1CA15616000302F7 /* LCTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E66F5B1CA15616000302F7 /* LCTopic.m */; };
 		84E66F601CA16B45000302F7 /* LCTopicViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E66F5E1CA16B45000302F7 /* LCTopicViewCell.m */; };
+		84E9CE481CA944F900AFEF6E /* LCTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CE471CA944F900AFEF6E /* LCTopicViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,6 +197,8 @@
 		84E66F5B1CA15616000302F7 /* LCTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTopic.m; sourceTree = "<group>"; };
 		84E66F5D1CA16B45000302F7 /* LCTopicViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTopicViewCell.h; sourceTree = "<group>"; };
 		84E66F5E1CA16B45000302F7 /* LCTopicViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTopicViewCell.m; sourceTree = "<group>"; };
+		84E9CE461CA944F900AFEF6E /* LCTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTopicViewController.h; sourceTree = "<group>"; };
+		84E9CE471CA944F900AFEF6E /* LCTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTopicViewController.m; sourceTree = "<group>"; };
 		AF71F20D7475EB4FC8DB1592 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +227,8 @@
 		841474001C9A43D000512FFB /* ChildController */ = {
 			isa = PBXGroup;
 			children = (
+				84E9CE461CA944F900AFEF6E /* LCTopicViewController.h */,
+				84E9CE471CA944F900AFEF6E /* LCTopicViewController.m */,
 				841474011C9A443900512FFB /* LCAllViewController.h */,
 				841474021C9A443900512FFB /* LCAllViewController.m */,
 				841474041C9A444E00512FFB /* LCVideoViewController.h */,
@@ -828,6 +833,7 @@
 				8437F58E1C92DF87000926BA /* LCEssenceViewController.m in Sources */,
 				849942911C997F310031CBB0 /* LCSquareCell.m in Sources */,
 				847E62171C98217C00A55754 /* LCADItem.m in Sources */,
+				84E9CE481CA944F900AFEF6E /* LCTopicViewController.m in Sources */,
 				84E66F601CA16B45000302F7 /* LCTopicViewCell.m in Sources */,
 				8499428D1C997AF90031CBB0 /* LCSquareItem.m in Sources */,
 				8437F59A1C92E02D000926BA /* LCPublishViewController.m in Sources */,

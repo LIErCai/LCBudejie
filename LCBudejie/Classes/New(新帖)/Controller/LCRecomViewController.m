@@ -13,7 +13,7 @@
 #import "LCSubTagItem.h"
 #import "LCSubTagCell.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-
+#import <MJRefresh.h>
 @interface LCRecomViewController()
 
 @property (nonatomic, strong) NSArray *subTagItems;
@@ -24,19 +24,14 @@
 
     NSString *const ID = @"cell";
 
-//- (NSArray *)subTagItems
-//{
-//    if (_subTagItems == nil)
-//    {
-//        _subTagItems = [NSArray array];
-//    }
-//    return _subTagItems;
-//}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.navigationItem.title= @"推荐标签";
-    [self setupData];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupData)];
+    [self.tableView.mj_header beginRefreshing];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"LCSubTagCell" bundle:nil] forCellReuseIdentifier:ID];
     // 清除系统的分割线
@@ -63,10 +58,12 @@
         [SVProgressHUD dismiss];
         self.subTagItems = [LCSubTagItem mj_objectArrayWithKeyValuesArray:responseObject];
         
-        [self.tableView reloadData];
+                [self.tableView reloadData];
+                [self.tableView.mj_header endRefreshing];
    
            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD dismiss];
+                [SVProgressHUD dismiss];
+                [self.tableView.mj_header endRefreshing];
     }];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -6,8 +6,9 @@
 //  Copyright © 2016年 LC. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LCTopicViewController.h"
 
-@interface LCPictureViewController : UITableViewController
+
+@interface LCPictureViewController : LCTopicViewController
 
 @end

@@ -45,7 +45,7 @@
         self.backgroundImageView.hidden = YES;
     }];
 
-       NSLog(@"%@", self.voiceImageView.image);
+    
     NSString *playCountStr;
     NSInteger count = topic.playcount;
     if (count >= 10000)

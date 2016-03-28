@@ -19,8 +19,9 @@
     
     if(originImage)
     {
-        self.image = originImage;
-        completedBlock(originImage, nil, 0, [NSURL URLWithString:originImageURL]);
+        [self sd_setImageWithURL:[NSURL URLWithString:originImageURL] placeholderImage:placeholder completed:completedBlock];
+//        self.image = originImage;
+//        completedBlock(originImage, nil, 0, [NSURL URLWithString:originImageURL]);
     }
     else
     {
@@ -46,12 +47,14 @@
             if(thumbnailImage)
             {
                 // 加载小图片
-                self.image = thumbnailImage;
-                completedBlock(thumbnailImage, nil, 0, [NSURL URLWithString:thumbnailImageURL]);
+                [self sd_setImageWithURL:[NSURL URLWithString:thumbnailImageURL] placeholderImage:placeholder completed:completedBlock];
+//                self.image = thumbnailImage;
+//                completedBlock(thumbnailImage, nil, 0, [NSURL URLWithString:thumbnailImageURL]);
             }else
             {
                 //加载占位图片
-                self.image = placeholder;
+                [self sd_setImageWithURL:nil placeholderImage:placeholder completed:completedBlock];
+//                self.image = placeholder;
             }
         }
     }
